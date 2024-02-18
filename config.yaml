@@ -1,0 +1,20 @@
+id: LoginLogo
+name: <__trans phrase="LoginLogo L10N">
+version: 1.0
+description: <__trans phrase="_PLUGIN_DESCRIPTION">
+author_name: <__trans phrase="_PLUGIN_AUTHOR">
+l10n_class: LoginLogo::L10N
+
+init: $LoginLogo::LoginLogo::cb_init
+
+#save_config_filterでバリデーションはかけれる、ただし継承する場合は再度コールバックを呼び必要
+# https://takeyuweb.hatenablog.com/entry/post_6
+system_config_template: system.tmpl
+settings:
+    loginlogo:
+        scope: system
+
+
+# loginlogoが保存したいname属性
+callbacks:
+  MT::App::CMS::template_source.header: $LoginLogo::LoginLogo::CMS::header

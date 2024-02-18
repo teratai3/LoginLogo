@@ -1,0 +1,19 @@
+<mtapp:setting
+    id="loginlogo"
+    label="<__trans phrase="loginlogoLabel">"
+    show_hint="0"
+    hint="">
+    <input type="file" class="text col-10" name="loginlogo" id="loginlogo_upload" />
+
+    <mt:if name="loginlogo">
+    <p class="mt-3"><img src='<mt:var name="static_uri">images/login_logo/<$mt:var name="loginlogo" escape="html"$>' width="150"></p>
+    </mt:if>
+
+</mtapp:setting>
+
+<script type="text/javascript">
+(function ($) {
+    var $form = $("#loginlogo_upload").parents("form");
+    $form.attr('enctype', 'multipart/form-data');
+})(jQuery);
+</script>
